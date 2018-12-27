@@ -1,0 +1,25 @@
+<div class="text-center">
+    <h3>Edit Article</h3>
+</div>
+<div class="container">
+    <form class="form-horizontal" name="articleForm" method="POST" action="/article/<%= article.id %>/save">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="title">Title  </label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="title" id="title" value="<%= article.title %>" placeholder="Enter Article Title" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="description">Body</label>
+        <div class="col-sm-6"> 
+          <textarea class="form-control" cols="50"  name="description" id="description" required placeholder="Enter Article Description"><%= article.description %></textarea>
+        </div>
+      </div>
+      <div class="form-group"> 
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-info">Save</button>
+          <button type="submit" class="btn" onclick="window.location='/'">Cancel</button>
+        </div>
+      </div>
+    </form>
+</div>

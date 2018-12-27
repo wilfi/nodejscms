@@ -1,0 +1,43 @@
+<% if(locals.action && locals.action == 'show') { %>
+<div class="container">
+	<a href="/" class="btn btn-primary home-button">
+	    <span class="glyphicon glyphicon-home"></span>
+	</a>
+</div>
+<% } %>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	// creating a new websocket
+	var socket = io.connect();
+	var prev_alert_message = "";
+	// on message received we print the new data inside the #container div
+	socket.on('notification', function (alert_messages) {
+		if(alert_messages == ''){
+			$('#alert_footer').hide();
+		}
+		else{
+			$('#alert_message_div').html(""); console.log(alert_messages);
+			if(alert_messages.length > 0){
+				alert_messages.splice(3);
+				alert_messages.forEach(function(alert_message){
+					var alert = '<div class="alert-message alert alert-info" role="alert">Article: "'+$.trim(alert_message.title)+'" has been '+alert_message.status+'</div>';
+					$('#alert_message_div').append(alert);
+					$('#alert_footer').show();
+				});
+			}
+			var updated_alert_message = $.trim(alert_messages[0].title);
+			
+			if(prev_alert_message != updated_alert_message){
+				var $target = $('html,body'); 
+				$target.animate({scrollTop: $target.height()}, 1000);
+				prev_alert_message = updated_alert_message;
+			}
+		}
+	});
+</script>
+
+<div id='alert_footer' class='container' style='display:none;'>
+	<div id='alert_message_div'> Loading... </div>
+</div>
+    

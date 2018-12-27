@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <% include ../partials/head %>
+    </head>
+
+    <body>
+        <div class="page-header text-center">
+            <h1>Node CMS</h1>
+        </div>
+        <% if(action == 'show'){ %>
+            <% include ../partials/showArticle %>
+        <% } else if(action == 'edit'){ %>
+            <% include ../partials/editArticle %>
+        <% } else { %>
+            <% include ../partials/addArticle %>
+        <%  } %>
+        <footer>
+            <% include ../partials/footer %>
+        </footer>
+    </body>
+</html>

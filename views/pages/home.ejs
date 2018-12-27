@@ -1,0 +1,38 @@
+<!-- views/pages/about.ejs -->
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<% include ../partials/head %>
+	</head>
+
+	<body>
+		<div class="page-header text-center">
+		  	<h1>Node CMS</h1>
+		</div>
+		<div class="container ">
+			<div class="form-group">
+				<button class="btn btn-primary" onclick="window.location='article/add'">Create Article</button>
+			</div>
+			<div class="articlesContainer">
+				<ul class="list-group" id="articlesList">
+					<% if(articles.length == 0) { %>
+						<li class="list-group-item alert alert-warning">
+							No articles created yet. You can create one by clicking on Create Article button.
+						</li>
+					<% } %>
+					<% articles.forEach(function(article){ %>
+						<li class="list-group-item articleItem" id="article_<%=article.id%>">
+							<a class="article-title" href="/article/<%=article.id%>"><%= article.title %></a>
+							<a href="javascript:void(0);" class="pull-right mr-5 ml-10 actionIcon" onclick="deleteArticle('<%=article.id%>');"><span class="glyphicon glyphicon-trash"></span></a>
+							<a href="javascript:void(0);" class="pull-right mr-10 ml-5 actionIcon" onclick="window.location='/article/<%=article.id%>/edit'"><span class="glyphicon glyphicon-pencil"></span></a>
+							<a class="loadingMsg pull-right" style="display:none;">deleting..</a>
+						</li>
+					<% }) %>
+				</ul>
+			</div>
+		</div>
+		<footer>
+			<% include ../partials/footer %>
+		</footer>
+	</body>
+</html>
