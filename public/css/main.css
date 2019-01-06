@@ -21,9 +21,9 @@ body{
 	padding:5px;
 }
 .home-button{
-	float:right;
 	margin-bottom:5%;
 	margin-right:20%;
+	margin-top: 29px;
 }
 .article-description{
 	max-height:	300px;
@@ -47,4 +47,17 @@ footer{
 }
 a {
 	color: black;
+}
+.page-header {
+	padding-bottom: 9px!important;
+	margin: 40px 0 20px!important;
+	border-bottom: 1px solid #eee!important;
+	/*background-color: #efefef!important;*/
+}
+div.page-header h1 {
+	margin-bottom: -4px!important;
+	color: slategray!important;
+}
+div.container {
+	width: 100%!important;
 }

@@ -8,6 +8,7 @@ var express = require('express'),
     path = require('path'),
     app = express();
     http = require('http'),
+    favicon = require('serve-favicon'),
     server = http.createServer(app),
     io = require('socket.io').listen(server);
 

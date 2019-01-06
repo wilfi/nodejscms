@@ -5,8 +5,8 @@ var pool    =   mysql.createPool({
 				    connectionLimit : 100,
 				    host     : 'localhost',
 				    user     : 'root',
-				    password : 'root',
-				    database : 'node-cms',
+				    password : 'Wil_2091',
+				    database : 'node_cms',
 				    debug    :  true
 				});
 

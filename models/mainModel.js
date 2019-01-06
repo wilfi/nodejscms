@@ -65,7 +65,7 @@ exports.getArticle = function(articleId,callback)
 exports.saveArticle = function(data,callback)
 {
 	var articleData = {title: data["title"], description: data["description"]};
-	
+	console.log(articleData);
     //insert article data
     if(data['articleId'] === undefined){
     	articleData.status = 'created';

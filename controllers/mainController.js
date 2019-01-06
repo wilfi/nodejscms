@@ -56,7 +56,7 @@ exports.editArticle = function(req,res)
 ************************************************************/
 exports.saveArticle = function(req,res)
 {
-
+	
 	var inputData = {};
 	inputData.title = req.body.title == undefined ? '' : req.body.title;
 	inputData.description = req.body.description == undefined ? '' : req.body.description;
